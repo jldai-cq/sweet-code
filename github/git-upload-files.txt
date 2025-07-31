@@ -18,7 +18,8 @@ git remote -v 查看已连接的存储库
 git push -u origin main 
 输入密码  Enter passphrase for key '/c/Users/代江林/.ssh/id_rsa': 0604
 
-报错信息： ! [rejected]        main -> main (fetch first)
+报错信息： $ git push -u origin main 
+! [rejected]        main -> main (fetch first)
 error: failed to push some refs to 'github.com:shengyp/Agri-RelExIns.git'
 hint: Updates were rejected because the remote contains work that you do not
 hint: have locally. This is usually caused by another repository pushing to
@@ -32,3 +33,16 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 
 解决方法2-拉取远程更改并合并：git pull origin main   
          将远程的更改合并到你的本地分支  git push -u origin main
+
+
+
+报错信息：$ git push -u origin main
+error: src refspec main does not match any
+error: failed to push some refs to 'github.com:jldai-cq/sweet-code.git'
+
+报错原因：本地没有 main 分支，先确认或创建它，再推送。
+git branch  查看分支名
+
+解决方法：
+git branch -M main  重命名分支为main
+git push -u origin main  再推送
