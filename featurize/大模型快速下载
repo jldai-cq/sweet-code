@@ -1,0 +1,3 @@
+HF模型下载地址：zai-org/chatglm3-6b at main
+安装包：pip install -U "huggingface_hub[cli]"
+下载命令：hf download zai-org/chatglm3-6b

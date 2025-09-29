@@ -1,0 +1,18 @@
+source /etc/network_turbo
+unset http_proxy && unset https_proxy
+
+# 1、安装huggingface_hub
+pip install -U huggingface_hub
+
+# 2、配置huggingface镜像源（可选，加快下载速度）
+vim ~/.bashrc
+按键i最后一行添加：export HF_ENDPOINT="https://hf-mirror.com"
+source ~/.bashrc
+
+# 3、下载模型命令
+huggingface-cli download --resume-download {huggingface官网上的模型ID} --local-dir {想要下载到的目录}
+
+# 4、示例下载命令：chatglm3-6b模型：
+huggingface-cli download --resume-download zai-org/chatglm3-6b --local-dir /root/models
+
+参考链接：https://blog.csdn.net/m0_58173553/article/details/140571476
