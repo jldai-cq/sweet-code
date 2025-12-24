@@ -1,18 +1,32 @@
+配置外网：
 source /etc/network_turbo
 unset http_proxy && unset https_proxy
 
-# 1、安装huggingface_hub
+1、安装 huggingface_hub
 pip install -U huggingface_hub
 
-# 2、配置huggingface镜像源（可选，加快下载速度）
-vim ~/.bashrc
-按键i最后一行添加：export HF_ENDPOINT="https://hf-mirror.com"
-source ~/.bashrc
+2、配置huggingface镜像源（可选，加快下载速度）
+    vim ~/.bashrc
+    按键 I 跳至最后一行添加：export HF_ENDPOINT=https://hf-mirror.com
+    保存：ESC、 :wq
+    执行：source ~/.bashrc
 
-# 3、下载模型命令
+3、下载模型命令
 huggingface-cli download --resume-download {huggingface官网上的模型ID} --local-dir {想要下载到的目录}
 
-# 4、示例下载命令：chatglm3-6b模型：
-huggingface-cli download --resume-download zai-org/chatglm3-6b --local-dir /root/models
+4、chatglm3-6b模型下载命令：
+huggingface-cli download --resume-download zai-org/chatglm3-6b  --local-dir /root/autodl-tmp/model/chatglm3-6b
+huggingface-cli download --resume-download zai-org/chatglm3-6b-base  --local-dir /root/autodl-tmp/model/chatglm3-6b-base
+
+5、chatglm3-6b模型分片下载命令：
+huggingface-cli download --resume-download zai-org/chatglm3-6b --include "pytorch_model-0000[1-7]-of-00007.bin" --local-dir /root/autodl-tmp/model
+huggingface-cli download --resume-download zai-org/chatglm3-6b-base --include "pytorch_model-0000[1-7]-of-00007.bin" --local-dir /root/autodl-tmp/model
+huggingface-cli download --resume-download zai-org/chatglm3-6b-base --include "pytorch_model-00004-of-00007.bin" --local-dir /root/autodl-tmp/model
 
 参考链接：https://blog.csdn.net/m0_58173553/article/details/140571476
+
+
+镜像配置：
+    Pytorch：2.1.2
+    Python：3.10
+    Cuda：11.8

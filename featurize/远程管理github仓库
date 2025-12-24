@@ -1,0 +1,33 @@
+# 1、配置name和email
+git config --global user.name "daijl-cq"
+git config --global user.email "daijl-cq@163.com"
+git clone git@github.com:jldai-cq/CropRELLM.git
+
+# 2、生成ssh key:
+ssh-keygen -t rsa -C daijl_cq@163.com
+保存位置： /root/.ssh
+生成文件：id_rsa 和 id_rsa.pub?
+
+# 3、查看ssh key：
+cd ~/.ssh
+ls
+打印ssh key：cat id_rsa.pub
+复制 id_rsa.pub 到 github-Settings-SSH and GPG keys
+
+# 4、重新克隆项目：
+重新克隆项目：git clone git@github.com:jldai-cq/CropRELLM.git
+
+
+# 5、上传更新：上传修改后的代码至github仓库
+    git add –A
+    git commit –m "test"
+    git push
+
+
+# 6、获取更新：获取更新后的github仓库
+    git pull
+
+
+
+教程链接：https://juejin.cn/post/7289336362845913142
+

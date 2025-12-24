@@ -1,8 +1,0 @@
-# 1、上传更新：上传修改后的代码至github仓库
-git add –A
-git commit –m "test"
-git push
-
-
-# 2、获取更新：获取更新后的github仓库
-git pull
